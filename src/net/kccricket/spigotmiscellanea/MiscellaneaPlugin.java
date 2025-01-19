@@ -1,6 +1,5 @@
 package net.kccricket.spigotmiscellanea;
 
-import net.kccricket.spigotmiscellanea.command.commands.CommandTemplate;
 import net.kccricket.spigotmiscellanea.placeholder.LocalPlaceholder;
 import net.kccricket.spigotmiscellanea.save.Config;
 import net.kccricket.spigotmiscellanea.save.MessageLoader;
@@ -16,19 +15,17 @@ public class MiscellaneaPlugin extends ZPlugin {
 
     @Override
     public void onEnable() {
-
         LocalPlaceholder placeholder = LocalPlaceholder.getInstance();
-        placeholder.setPrefix("template");
+        placeholder.setPrefix("miscellanea");
 
         this.preEnable();
 
-        this.registerCommand("template", new CommandTemplate(this));
+        this.addListener(new PlayerNametagPrefixer());
 
         this.addSave(Config.getInstance());
         this.addSave(new MessageLoader(this));
 
         this.loadFiles();
-
         this.postEnable();
     }
 

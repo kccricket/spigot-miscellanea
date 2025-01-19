@@ -6,6 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import net.kccricket.spigotmiscellanea.zcore.utils.plugins.Plugins;
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import fr.maxlego08.ztranslator.api.Translator;
 
 /**
@@ -29,7 +30,7 @@ public abstract class TranslationHelper {
 			return "";
 		}
 		if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasDisplayName()) {
-			return itemStack.getItemMeta().getDisplayName();
+			return PlainTextComponentSerializer.plainText().serialize(itemStack.getItemMeta().displayName());
 		}
 
 		if (Bukkit.getPluginManager().isPluginEnabled(Plugins.ZTRANSLATOR.getName())) {
@@ -57,7 +58,7 @@ public abstract class TranslationHelper {
 			return "";
 		}
 		if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasDisplayName()) {
-			return itemStack.getItemMeta().getDisplayName();
+			return PlainTextComponentSerializer.plainText().serialize(itemStack.getItemMeta().displayName());
 		}
 
 		if (Bukkit.getPluginManager().isPluginEnabled(Plugins.ZTRANSLATOR.getName())) {

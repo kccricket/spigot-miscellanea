@@ -16,6 +16,7 @@ import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -34,7 +35,7 @@ public class AdapterListener extends ZUtils implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        this.plugin.getListenerAdapters().forEach(adapter -> adapter.onConnect(event, event.getPlayer()));
+        this.plugin.getListenerAdapters().forEach(adapter -> adapter.onJoin(event, event.getPlayer()));
     }
 
     @EventHandler
@@ -50,6 +51,12 @@ public class AdapterListener extends ZUtils implements Listener {
     @EventHandler
     public void onPlayerTeleport(PlayerTeleportEvent event) {
         this.plugin.getListenerAdapters().forEach(adapter -> adapter.onTeleport(event, event.getPlayer()));
+    }
+
+    @EventHandler
+    public void onPlayerChangedWorld(PlayerChangedWorldEvent event) {
+        this.plugin.getListenerAdapters().forEach(adapter -> adapter.onChangeWorld(event, event.getPlayer(),
+                event.getFrom(), event.getPlayer().getWorld()));
     }
 
     @EventHandler

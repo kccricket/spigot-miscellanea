@@ -210,7 +210,7 @@ public class CommandManager extends ZUtils implements CommandExecutor, TabComple
 			if (command.sameSubCommands()) {
 				Logger.info(command.toString() + " command to an argument similar to its parent command !",
 						LogType.ERROR);
-				this.plugin.getPluginLoader().disablePlugin(this.plugin);
+				Bukkit.getPluginManager().disablePlugin(this.plugin);
 			}
 		});
 	}
@@ -290,7 +290,7 @@ public class CommandManager extends ZUtils implements CommandExecutor, TabComple
             commands.add(vCommand.addSubCommand(string));
             vCommand.addSubCommand(aliases);
 
-            if (!commandMap.register(command.getName(), plugin.getDescription().getName(), command)) {
+            if (!commandMap.register(command.getName(), plugin.getPluginMeta().getName(), command)) {
                 Logger.info("Unable to add the command " + vCommand.getSyntax());
             }
         } catch (Exception exception) {

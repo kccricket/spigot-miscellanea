@@ -34,7 +34,7 @@ import net.kccricket.spigotmiscellanea.zcore.utils.ZUtils;
 
 public abstract class ListenerAdapter extends ZUtils {
 
-	protected void onConnect(PlayerJoinEvent event, Player player) {
+	protected void onJoin(PlayerJoinEvent event, Player player) {
 	}
 
 	protected void onQuit(PlayerQuitEvent event, Player player) {

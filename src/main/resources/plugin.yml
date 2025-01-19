@@ -1,8 +1,8 @@
-name: TemplatePlugin
-author: Maxlego08
-main: fr.maxlego08.template.Template
-website: https://groupez.dev
-description: Default plugin developed by GroupeZ
+name: SpigotMiscellanea
+author: kccricket
+main: net.kccricket.spigotmiscellanea.MiscellaneaPlugin
+website: https://kccricket.net
+description: Miscellanea plugin developed by kccricket
 version: 1.0.0
-api-version: 1.13
-commands:
+api-version: 1.20
+softdepend: [NametagEdit]
